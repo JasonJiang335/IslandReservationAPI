@@ -38,7 +38,7 @@ public class ReservationController {
      * POST  /reservation : Create a new reservation.
      *
      * @param reservationDTO the reservationDTO to create
-     * @return the ResponseEntity with status 201 (Created) and with body the new reservationDTO,
+     * @return the ResponseEntity with status 201 (Created) and with body of new reservationDTO,
      * status 400 (Bad Request) if the reservationDTO is not valid
      */
 	@PostMapping("/reservation")
@@ -61,7 +61,7 @@ public class ReservationController {
 	 * @param uniqueID the id of the reservation to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated reservationDTO,
      * status 400 (Bad Request) if the reservationDTO is not valid,
-     * status 404 (Not Found) if the resource does not exist,
+     * status 404 (Not Found) if the reservationDTO does not exist,
      * status 500 (Internal Server Error) if the reservationDTO couldn't be updated
      */
 	@PutMapping("/reservation/{uniqueID}")

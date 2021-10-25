@@ -42,6 +42,7 @@ public class ReservationDateController {
      * @param available if specific date is available
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of available dates as body
+	 * status 400 (Bad Request) no reservation dates data populates
      */
 	@GetMapping("/reservationDates")
 	public ResponseEntity<Object> getReservationDates(
@@ -53,8 +54,8 @@ public class ReservationDateController {
 					.listReservationDates(start, end, available, pageable)
 					.map(reservationDateMapper::toDto);
 			return ResponseEntity.ok().body(page.getContent());
-		} catch (IllegalArgumentException exc) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exc.getMessage());
+		} catch (IllegalArgumentException e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		}
 	}
 }
